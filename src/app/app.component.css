@@ -1,6 +1,8 @@
 .app-header {
   padding: 10px;
-  background: #efefef;
+  background: var(--primary-background-color);
+  color: var(--primary-text-color);
   border-bottom: #dedede solid 1px;
   box-shadow: #cdcdcd 0 1px 0 2px;
+  font-size: var(--font-size-header);
 }

@@ -12,10 +12,15 @@ import { AppComponent } from "./app.component";
   entryComponents: [AppComponent]
 })
 export class AppModule {
+  customElement;
   constructor(private injector: Injector) {
-    const customElement = createCustomElement(AppComponent, { injector });
-    customElements.define("halodoc-header-root", customElement);
+    this.customElement = createCustomElement(AppComponent, { injector });
+    customElements.define("halodoc-header-root", this.customElement);
   }
 
-  ngDoBootstrap() {}
+  ngDoBootstrap() {
+    // if (!customElements.get("halodoc-header-root")) {
+    //   customElements.define("halodoc-header-root", this.customElement);
+    // }
+  }
 }
