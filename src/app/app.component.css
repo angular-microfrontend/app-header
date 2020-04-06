@@ -1,8 +1,29 @@
-.app-header {
-  padding: 10px;
+.app-header-container {
+  --primary-background-color: #369;
+
   background: var(--primary-background-color);
-  color: var(--primary-text-color);
   border-bottom: #dedede solid 1px;
   box-shadow: #cdcdcd 0 1px 0 2px;
+  color: var(--primary-text-color);
+  display: flex;
   font-size: var(--font-size-header);
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-header-container .languages-container {
+  margin: 0;
+  display: flex;
+  list-style-type: none;
+}
+
+.app-header-container .languages-container li {
+  margin-left: 10px;
+  padding: 5px 10px;
+}
+
+.app-header-container .languages-container li.active {
+  background: white;
+  border-radius: 5px;
 }

@@ -5,11 +5,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod=true --namedChunks=true --outputHashing=none --sourceMap=false",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:elements": "ng build --prod --output-hashing none && node concatenate.js"
+    "package": "npm run build && node concatenate.js"
   },
   "private": true,
   "dependencies": {
@@ -22,7 +22,10 @@
     "@angular/platform-browser": "~9.0.7",
     "@angular/platform-browser-dynamic": "~9.0.7",
     "@angular/router": "~9.0.7",
+    "@ngx-translate/core": "^12.1.2",
+    "@ngx-translate/http-loader": "^4.0.0",
     "@webcomponents/custom-elements": "^1.4.1",
+    "ngx-translate-multi-http-loader": "^3.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
