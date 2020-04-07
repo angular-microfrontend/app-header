@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnChanges, OnInit } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 
 @Component({
@@ -6,22 +6,26 @@ import { TranslateService } from "@ngx-translate/core";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnChanges {
   languages = ["en", "id"];
-  currentLang;
-  @Input() name: string;
+  currentLang: string;
+  _data: any;
 
-  constructor(private translate: TranslateService) {
-    console.log(this.name);
-    const currLang = window.localStorage.getItem("lang");
-    console.log("from header module", currLang);
-    translate.use(currLang);
-    this.currentLang = currLang;
+  @Input() data: any;
+
+  constructor(private translate: TranslateService) {}
+
+  ngOnInit() {}
+
+  ngOnChanges(changes) {
+    this._data = JSON.parse(changes.data.currentValue);
+    console.log("data passed is: ", this._data);
+    this.currentLang = this._data.common.translation;
+    this.updateLanguageTranslation(this.currentLang);
   }
 
   updateLanguageTranslation(lang: string) {
     this.translate.use(lang);
-    window.localStorage.setItem("lang", lang);
     this.currentLang = lang;
   }
 }

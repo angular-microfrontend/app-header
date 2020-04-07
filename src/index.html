@@ -8,6 +8,18 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
   <body>
-    <halodoc-header-root name="Halo doc"></halodoc-header-root>
+    <halodoc-header-root></halodoc-header-root>
+    <script>
+      var a = {
+        common: {
+          translate: "en",
+        },
+        header: {
+          name: "from app shell",
+        },
+      };
+      var b = JSON.stringify(a);
+      document.querySelector("halodoc-header-root").setAttribute("data", b);
+    </script>
   </body>
 </html>

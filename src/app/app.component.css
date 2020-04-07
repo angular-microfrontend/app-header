@@ -1,6 +1,4 @@
 .app-header-container {
-  --primary-background-color: #369;
-
   background: var(--primary-background-color);
   border-bottom: #dedede solid 1px;
   box-shadow: #cdcdcd 0 1px 0 2px;
@@ -26,4 +24,5 @@
 .app-header-container .languages-container li.active {
   background: white;
   border-radius: 5px;
+  color: var(--primary-background-color);
 }

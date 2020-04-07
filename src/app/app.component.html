@@ -1,7 +1,8 @@
 <div class="app-header-container">
-  <div class="app-header">{{ "header.title" | translate }} {{ name }}</div>
+  <div class="app-header">
+    {{ "header.title" | translate }} {{ _data.header.name }}
+  </div>
   <ul class="languages-container">
-    <!-- <li>{{ "LANGUAGES." + language | translate }}</li> -->
     <li
       *ngFor="let lang of languages"
       [class.active]="lang === currentLang"
