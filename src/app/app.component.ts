@@ -19,7 +19,7 @@ export class AppComponent implements OnInit, OnChanges {
   _data: any;
 
   @Input() data: any;
-  @Output() translationChanged = new EventEmitter();
+  @Output() dataUpdated = new EventEmitter();
 
   constructor(private translate: TranslateService) {}
 
@@ -34,6 +34,6 @@ export class AppComponent implements OnInit, OnChanges {
   updateLanguageTranslation(lang: string) {
     this.translate.use(lang);
     this.currentLang = lang;
-    this.translationChanged.emit({ translationId: lang });
+    this.dataUpdated.emit({ translationId: lang });
   }
 }
