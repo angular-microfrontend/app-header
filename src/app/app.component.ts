@@ -1,4 +1,11 @@
-import { Component, Input, OnChanges, OnInit } from "@angular/core";
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  EventEmitter,
+} from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 
 @Component({
@@ -12,6 +19,7 @@ export class AppComponent implements OnInit, OnChanges {
   _data: any;
 
   @Input() data: any;
+  @Output() translationChanged = new EventEmitter();
 
   constructor(private translate: TranslateService) {}
 
@@ -27,5 +35,6 @@ export class AppComponent implements OnInit, OnChanges {
   updateLanguageTranslation(lang: string) {
     this.translate.use(lang);
     this.currentLang = lang;
+    this.translationChanged.emit({ translationId: lang });
   }
 }

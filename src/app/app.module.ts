@@ -45,9 +45,5 @@ export class AppModule {
     }
   }
 
-  ngDoBootstrap() {
-    // if (!customElements.get("halodoc-header-root")) {
-    //   customElements.define("halodoc-header-root", this.customElement);
-    // }
-  }
+  ngDoBootstrap() {}
 }
