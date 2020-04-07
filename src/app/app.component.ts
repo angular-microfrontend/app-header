@@ -27,7 +27,6 @@ export class AppComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes) {
     this._data = JSON.parse(changes.data.currentValue);
-    console.log("data passed is: ", this._data);
     this.currentLang = this._data.common.translation;
     this.updateLanguageTranslation(this.currentLang);
   }
